@@ -1,0 +1,383 @@
+; Installation inf for the Apple Mobile Device driver
+;
+; AppleUSB.inf
+;
+; (c) Copyright 2017 Apple, Inc.
+;
+;
+
+; Note: the build process will overwrite the DriverVer field with
+; the date of the build and the "Properties > Stampinf > Driver Version Number"
+; so be sure to edit the properties for every release.
+[Version]
+Signature="$WINDOWS NT$"
+Class=USBDevice
+ClassGUID={88BAE032-5A81-49f0-BC3D-A4FF138216D6}
+Provider=%AAPL%
+DriverVer = 10/02/2020,486.0.0.0
+CatalogFile=AppleUSB.cat
+
+; ========== Manufacturer/Models sections ===========
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%AAPL%=Apple, NTamd64
+
+[Apple.NTamd64]
+
+;---- AppleUSB (USBCCGP) ---------------------------------------------------;
+
+;
+;
+; iOS devices (Mobile Device)
+;
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_1290
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_1291
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_1292
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_1293
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_1294
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_1297
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_1299
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_129a
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_129c
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_129d
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_129e
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_129f
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_12a0
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_12a1
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_12a2
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_12a3
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_12a4
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_12a5
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_12a6
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_12a8
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_12a9
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_12aa
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_12ab
+%iPhone.AppleUSB.DeviceDesc%=AppleUSB_CCGPDriverInstall, USB\VID_05ac&PID_12ac
+
+
+;---- AppleUSB Watch (USBCCGP) ----------------------------------------------;
+
+%iWatch.AppleUSB.DeviceDesc%=AppleUSBWatch_CCGPDriverInstall, USB\VID_05ac&PID_12af
+
+;---- Apple HomePod (USBCCGP) ----------------------------------------------;
+
+%HomePod.AppleUSB.DeviceDesc%=AppleUSBHomePod_CCGPDriverInstall, USB\VID_05ac&PID_12b0
+
+;---- AppleUSB TV (WinUSB) ----------------------------------------------;
+
+%AppleTV.AppleUSB.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a7
+
+
+;---- AppleUsbRecovery (USBCCGP) --------------------------------------------;
+
+;
+; iBoot
+;
+%iBoot.AppleUsbRecovery.DeviceDesc%=AppleUsbRecovery_CCGPDriverInstall, USB\VID_05ac&PID_1280
+%iBoot.AppleUsbRecovery.DeviceDesc%=AppleUsbRecovery_CCGPDriverInstall, USB\VID_05ac&PID_1281
+
+;---- AppleUsbMux (WinUSB/AppleUsbFilter) -----------------------------------;
+
+;
+;
+; iOS devices (Mobile Device)
+;
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1290&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1291&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1292&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1293&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1294&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1297&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1299&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_129a&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_129c&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_129d&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_129e&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_129f&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a0&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a1&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a2&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a3&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a4&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a5&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a6&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a7&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a8&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a9&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12aa&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12ab&MI_01
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12ac&MI_01
+%iWatch.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12af&MI_00
+%HomePod.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12b0&MI_00
+
+;
+;
+; RestoreOS devices (Mobile Device)
+;
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1290&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1291&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1292&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1293&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1294&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1297&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1299&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_129a&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_129c&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_129d&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_129e&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_129f&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a0&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a1&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a2&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a3&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a4&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a5&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a6&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a7&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a8&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12a9&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12aa&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12ab&RESTORE_MODE&MI_00
+%iPhone.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_12ac&RESTORE_MODE&MI_00
+
+
+;
+; iBoot
+;
+%iBoot.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1280&MI_00
+%iBoot.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1281&MI_00
+%iBoot.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1282&MI_00
+%iBoot.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1283&MI_00
+
+;
+; iBoot serial
+;
+%iBootSer.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1280&MI_01
+%iBootSer.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1281&MI_01
+%iBootSer.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1282&MI_01
+%iBootSer.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1283&MI_01
+
+;
+; iDFU
+;
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1220
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1221
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1222
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1223
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1224
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1225
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1226
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1227
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1228
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1229
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1230
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1231
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1232
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1233
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1234
+
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1240
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1241
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1242
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1243
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1245
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1246
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1247
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1248
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1249
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_124A
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1250
+
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1700
+%iDFU.AppleUsbMux.DeviceDesc%=AppleUsbMux_Install, USB\VID_05ac&PID_1701
+
+; ======== AppleUSB (USBCCGP) ==========================================
+
+[AppleUSB_CCGPDriverInstall.NT]
+Include=usb.inf
+Needs=Composite.Dev.NT
+CopyFiles=AppleLowerFilter_CopyFiles
+FeatureScore=0x7F
+
+[AppleLowerFilter_CopyFiles]
+AppleLowerFilter.sys
+
+[AppleUSB_CCGPDriverInstall.NT.Services]
+Include=usb.inf
+Needs=Composite.Dev.NT.Services
+AddService=AppleLowerFilter,0x00000000,AppleLowerFilter_ServiceInstall
+
+[AppleUSB_CCGPDriverInstall.NT.HW]
+AddReg=AppleUSB_CCGPDriverInstall_AddReg.HW
+
+[AppleUSB_CCGPDriverInstall_AddReg.HW]
+HKR,,"OriginalConfigurationValue",0x00010001,2
+HKR,,"UsbccgpCapabilities",0x00010001,0x10
+HKR,,FriendlyName,,%iPhone.AppleUSB.DeviceDesc%
+HKR,,LowerFilters,0x00010000,AppleLowerFilter
+
+[AppleLowerFilter_ServiceInstall]
+DisplayName   = %AppleLowerFilterDisplayName%
+ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
+StartType     = 3                  ; SERVICE_DEMAND_START
+ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\AppleLowerFilter.sys
+
+; ======== AppleUsbWatch (USBCCGP) ====================================
+
+[AppleUsbWatch_CCGPDriverInstall.NT]
+Include=usb.inf
+Needs=Composite.Dev.NT
+FeatureScore=0x7F
+
+[AppleUsbWatch_CCGPDriverInstall.NT.Services]
+Include=usb.inf
+Needs=Composite.Dev.NT.Services
+
+[AppleUsbWatch_CCGPDriverInstall.NT.HW]
+AddReg=AppleUsbWatch_CCGPDriverInstall_AddReg.HW
+
+[AppleUsbWatch_CCGPDriverInstall_AddReg.HW]
+HKR,,FriendlyName,,%iWatch.AppleUsbMux.DeviceDesc%
+
+; ======== AppleUsbHomePod (USBCCGP) ====================================
+
+[AppleUsbHomePod_CCGPDriverInstall.NT]
+Include=usb.inf
+Needs=Composite.Dev.NT
+FeatureScore=0x7F
+
+[AppleUsbHomePod_CCGPDriverInstall.NT.Services]
+Include=usb.inf
+Needs=Composite.Dev.NT.Services
+
+[AppleUsbHomePod_CCGPDriverInstall.NT.HW]
+AddReg=AppleUsbHomePod_CCGPDriverInstall_AddReg.HW
+
+[AppleUsbHomePod_CCGPDriverInstall_AddReg.HW]
+HKR,,FriendlyName,,%HomePod.AppleUsbMux.DeviceDesc%
+
+; ======== AppleUsbRecovery (USBCCGP) ====================================
+
+[AppleUsbRecovery_CCGPDriverInstall.NT]
+Include=usb.inf
+Needs=Composite.Dev.NT
+FeatureScore=0x7F
+
+[AppleUsbRecovery_CCGPDriverInstall.NT.Services]
+Include=usb.inf
+Needs=Composite.Dev.NT.Services
+
+[AppleUsbRecovery_CCGPDriverInstall.NT.HW]
+AddReg=AppleUsbRecovery_CCGPDriverInstall_AddReg.HW
+
+[AppleUsbRecovery_CCGPDriverInstall_AddReg.HW]
+HKR,,FriendlyName,,%iBoot.AppleUsbRecovery.DeviceDesc%
+
+; ======== AppleUsbMux (WinUSB/AppleUsbFilter/AppleKmdfFilter) ==============
+
+[AppleUsbMux_Install]
+Include=winusb.inf
+Needs=WINUSB.NT
+CopyFiles=AppleUsbFilter_CopyFiles
+CopyFiles=AppleKmdfFilter_CopyFiles
+FeatureScore=0x7F
+
+[AppleUsbFilter_CopyFiles]
+AppleUsbFilter.dll
+
+[AppleKmdfFilter_CopyFiles]
+AppleKmdfFilter.sys
+
+[AppleUsbMux_Install.HW]
+AddReg=AppleUsbMux_AddReg.HW
+
+[AppleUsbMux_AddReg.HW]
+HKR,,FriendlyName,,%iPhone.AppleUsbMux.DeviceDesc%
+HKR,,DeviceInterfaceGUIDs,0x00010000,"{664be590-54bd-4964-8a8c-6cd1314f6dc2}" ; New iTunes WinUSB interface
+HKR,,ResetPortEnabled,0x00010001,1
+HKR,,UpperFilters,0x00010000,WUDFRd,AppleKmdfFilter
+
+[AppleUsbMux_Install.Services]
+Include=winusb.inf
+Needs=WINUSB.NT.Services
+AddService=WUDFRd,0x000001f8,WUDFRD_ServiceInstall
+AddService=AppleKmdfFilter,0x00000000,AppleKmdfFilter_ServiceInstall
+
+[WUDFRD_ServiceInstall]
+DisplayName   = %WudfRdDisplayName%
+ServiceType   = 1
+StartType     = 3
+ErrorControl  = 1
+ServiceBinary = %12%\WUDFRd.sys
+
+[AppleKmdfFilter_ServiceInstall]
+DisplayName   = %AppleKmdfFilterDisplayName%
+ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
+StartType     = 3                  ; SERVICE_DEMAND_START
+ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\AppleKmdfFilter.sys
+
+[AppleUsbMux_Install.Wdf]
+UmdfService=AppleUsbFilter,AppleUsbFilter_UmdfFilter
+UmdfServiceOrder=AppleUsbFilter
+UmdfKernelModeClientPolicy=AllowKernelModeClients
+
+[AppleUsbFilter_UmdfFilter]
+UmdfLibraryVersion=2.0
+DriverCLSID={01bb965b-5a71-4cca-ba81-81be3d53330a}
+ServiceBinary=%12%\UMDF\AppleUsbFilter.dll
+
+[AppleUsbMux_Install.Interfaces]
+;AddInterface={f0b32be3-6678-4879-9230-e43845d805ee},"MUX1" ; Legacy iTunes USBAAPL interface
+
+[AppleUsbMux_Install.CoInstallers]
+AddReg=CoInstallers_AddReg
+CopyFiles=CoInstallers_CopyFiles
+
+[CoInstallers_AddReg]
+;HKR,,CoInstallers32,0x00010000,"WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller"
+
+[CoInstallers_CopyFiles]
+;WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
+
+; ================= Source Media Section =====================
+
+[SourceDisksNames]
+1 = %DiskName%
+
+[SourceDisksFiles]
+AppleUsbFilter.dll=1
+AppleKmdfFilter.sys=1
+AppleLowerFilter.sys=1
+;WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1
+
+[DestinationDirs]
+AppleUsbFilter_CopyFiles  = 12,UMDF ; System32\drivers\UMDF
+AppleKmdfFilter_CopyFiles = 12      ; System32\drivers
+AppleLowerFilter_CopyFiles = 12     ; System32\drivers
+CoInstallers_CopyFiles    = 11      ; System32
+
+; =================== Strings ===============================
+
+[Strings]
+AAPL="Apple, Inc."
+iPhone.AppleUSB.DeviceDesc="Apple Mobile Device USB Composite Device"
+iWatch.AppleUSB.DeviceDesc="Apple Watch USB Composite Device"
+HomePod.AppleUSB.DeviceDesc="Apple HomePod USB Composite Device"
+AppleTV.AppleUSB.DeviceDesc="Apple TV USB Device"
+iBoot.AppleUsbRecovery.DeviceDesc="Apple Recovery (iBoot) USB Composite Device"
+iPhone.AppleUsbMux.DeviceDesc="Apple Mobile Device USB Device"
+iWatch.AppleUsbMux.DeviceDesc="Apple Watch USB Device"
+HomePod.AppleUsbMux.DeviceDesc="Apple HomePod USB Device"
+iBoot.AppleUsbMux.DeviceDesc="Apple Recovery (iBoot) USB Device"
+iBootSer.AppleUsbMux.DeviceDesc="Apple Recovery (iBoot) USB Serial Device"
+iDFU.AppleUsbMux.DeviceDesc="Apple Recovery (DFU) USB Device"
+AppleKmdfFilterDisplayName="Apple KMDF Filter Driver"
+AppleLowerFilterDisplayName="Apple Lower Filter Driver"
+WudfRdDisplayName="Windows Driver Foundation - User-mode Driver Framework Reflector"
+DiskName="Apple Mobile Device Setup Disk"
