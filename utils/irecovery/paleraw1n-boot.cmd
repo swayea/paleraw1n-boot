@@ -2,6 +2,9 @@
 
 setlocal
 
+ren deps .deps
+ren libs .libs
+
 :ask_device
 echo Which device do you want to boot?
 echo 1. iPhone9,x
