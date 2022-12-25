@@ -5,6 +5,10 @@ BOOT your palera1n jailbreaked device on Windows
 - Tested on iPhone 6s iOS 15.7.2 , Windows 11 Home
 - A9 and lower use A9 option
 
+# Requirements
+
+- Put your boot files into irecovery directory. Otherwise it will not work.
+
 # Usage
 
 - Open CMD
