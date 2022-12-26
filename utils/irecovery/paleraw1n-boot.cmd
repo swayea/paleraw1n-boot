@@ -5,18 +5,7 @@ setlocal
 ren deps .deps
 ren libs .libs
 
-:ask_device
-echo Which device do you want to boot?
-echo 1. iPhone9,x
-echo 2. iPhone10,x
-echo 3. A9
-set /p device=
-
-if "%device%"=="1" goto check_files_9
-if "%device%"=="2" goto check_files_10
-if "%device%"=="3" goto check_files_A9
-echo Invalid choice. Please try again.
-goto ask_device
+goto check_files
 
 :check_files
 
@@ -55,10 +44,21 @@ if exist "libtermcap-0.dll" (
   goto end
 )
 
-goto ask_ready
+:ask_device
+echo Which device do you want to boot?
+echo 1. iPhone9,x
+echo 2. iPhone10,x
+echo 3. A9
+set /p device=
+
+if "%device%"=="1" goto check_files_9
+if "%device%"=="2" goto check_files_10
+if "%device%"=="3" goto check_files_A9
+
+echo Invalid choice. Please try again.
+goto ask_device
 
 :check_files_9
-call :check_files
 
 if exist "ibot.img4" (
   echo ibot.img4 found.
@@ -74,10 +74,7 @@ if exist "payload_t8010.bin" (
   goto end
 )
 
-goto ask_ready
-
 :check_files_10
-call :check_files
 
 if exist "ibot.img4" (
   echo ibot.img4 found.
@@ -93,10 +90,7 @@ if exist "payload_t8015.bin" (
   goto end
 )
 
-goto ask_ready
-
 :check_files_A9
-call :check_files
 
 if exist "ibot.img4" (
   echo ibot.img4 found.
@@ -112,11 +106,7 @@ if exist "iBSS.img4" (
   goto end 
 )
 
-if "%device%"=="1" goto run_commands_9
-if "%device%"=="2" goto run_commands_10
-if "%device%"=="3" goto run_commands_A9
-echo Invalid choice. Please try again.
-goto ask_device
+goto ask_ready
 
 :ask_ready
 echo Be sure you are in pwned DFU and have correct drivers installed. Write 'ok' if it is.
@@ -125,6 +115,13 @@ set /p ready=
 if /i "%ready%"=="ok" goto run_commands
 echo Invalid response. Please try again.
 goto ask_ready
+
+:run_commands
+if "%device%"=="1" goto run_commands_9
+if "%device%"=="2" goto run_commands_10
+if "%device%"=="3" goto run_commands_A9
+echo Invalid choice. Please try again.
+goto ask_device
 
 :run_commands_9
 echo Running commands for iPhone9,x...
@@ -171,4 +168,5 @@ goto end
 
 :end
 echo Done.
-endlocal
+
+timeout /t 5 /nobreak >nul
