@@ -7,7 +7,7 @@ BOOT your palera1n jailbreaked device on Windows
 
 # Requirements
 
-- Put your boot files into irecovery directory. Otherwise it will not work.
+- copy all files where is located on palera1n boot directory (boot-"$deviceid"/) in your boot files into irecovery directory. Otherwise it will not work.
 
 # Usage
 
