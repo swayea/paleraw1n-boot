@@ -248,7 +248,7 @@ irecovery.exe -c firmware
 timeout /t 1 /nobreak >nul
 irecovery.exe -f kernelcache.img4
 timeout /t 1 /nobreak >nul
-irecovery -c bootx
+irecovery.exe -c bootx
 
 :dualbootA9
 if exist "iBSS.img4" (
@@ -300,7 +300,7 @@ irecovery.exe -c firmware
 timeout /t 1 /nobreak >nul
 irecovery.exe -f kernelcache.img4
 timeout /t 1 /nobreak >nul
-irecovery -c bootx
+irecovery.exe -c bootx
 
 
 :end
