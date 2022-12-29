@@ -2,8 +2,28 @@
 
 setlocal
 
+:check_folder
+if exist "deps" (
+goto :rename
+)
+
+if exist "libs" (
+goto :rename
+)
+
+if exist ".deps" (
+goto :check_files
+)
+
+if exist ".libs" (
+goto :check_files
+)
+
+:rename
 ren deps .deps
+goto check_folder
 ren libs .libs
+goto check_folder
 
 goto check_files
 
@@ -43,6 +63,19 @@ if exist "libtermcap-0.dll" (
   echo libtermcap-0.dll not found.
   goto end
 )
+
+goto dualboot
+
+:dualboot
+echo write 1 if you are booting to dualboot. if not write 2
+set /p answer=
+
+if "%answer%"=="1" goto :dual_realboot
+if "%answer%"=="2" goto :ask_device
+
+
+echo Invalid choice. Please try again
+goto dualboot
 
 :ask_device
 echo Which device do you want to boot?
@@ -165,6 +198,123 @@ irecovery.exe -f iBSS.img4
 timeout /t 4 /nobreak >nul
 irecovery.exe -f ibot.img4
 goto end
+
+:dual_realboot
+echo Which device do you want to boot?
+echo 1. A10_11
+echo 2. A9
+set /p device=
+
+if "%device%"=="1" goto dualbootA10_11
+if "%device%"=="2" goto dualbootA9
+echo Invalid choice. Please try again.
+goto dual_realboot
+
+:dualbootA10_11
+if exist "iBSS.img4" (
+  echo iBSS.img4 found.
+) else (
+  echo iBSS.img4 not found.
+  goto end
+)
+
+if exist "iBEC.img4" (
+  echo iBEC.img4 found.
+) else (
+  echo iBEC.img4 not found.
+  goto end
+)
+
+if exist "devicetree.img4" (
+  echo devicetree.img4 found.
+) else (
+  echo devicetree.img4 not found.
+  goto end
+)
+
+if exist "trustcache.img4" (
+  echo trustcache.img4 found.
+) else (
+  echo trustcache.img4 not found.
+  goto end
+)
+
+if exist "kernelcache.img4" (
+  echo kernelcache.img4 found.
+) else (
+  echo kernelcache.img4 not found.
+  goto end
+)
+
+echo Running commands for A10-A11...
+irecovery.exe -f iBSS.img4
+timeout /t 1 /nobreak >nul
+irecovery.exe -f iBEC.img4
+timeout /t 3 /nobreak >nul
+irecovery.exe -c go
+irecovery.exe -f devicetree.img4
+timeout /t 1 /nobreak >nul
+irecovery.exe -c devicetree
+timeout /t 1 /nobreak >nul
+irecovery.exe -v -f trustcache.img4
+irecovery.exe -c firmware
+timeout /t 1 /nobreak >nul
+irecovery.exe -f kernelcache.img4
+timeout /t 1 /nobreak >nul
+irecovery -c bootx
+
+:dualbootA9
+if exist "iBSS.img4" (
+  echo iBSS.img4 found.
+) else (
+  echo iBSS.img4 not found.
+  goto end
+)
+
+if exist "iBEC.img4" (
+  echo iBEC.img4 found.
+) else (
+  echo iBEC.img4 not found.
+  goto end
+)
+
+if exist "devicetree.img4" (
+  echo devicetree.img4 found.
+) else (
+  echo devicetree.img4 not found.
+  goto end
+)
+
+if exist "trustcache.img4" (
+  echo trustcache.img4 found.
+) else (
+  echo trustcache.img4 not found.
+  goto end
+)
+
+if exist "kernelcache.img4" (
+  echo kernelcache.img4 found.
+) else (
+  echo kernelcache.img4 not found.
+  goto end
+)
+
+echo Running commands for A9...
+irecovery.exe -f iBSS.img4
+timeout /t 1 /nobreak >nul
+irecovery.exe -f iBEC.img4
+timeout /t 3 /nobreak >nul
+irecovery.exe -f devicetree.img4
+timeout /t 1 /nobreak >nul
+irecovery.exe -c devicetree
+timeout /t 1 /nobreak >nul
+irecovery.exe -v -f trustcache.img4
+irecovery.exe -c firmware
+timeout /t 1 /nobreak >nul
+irecovery.exe -f kernelcache.img4
+timeout /t 1 /nobreak >nul
+irecovery -c bootx
+
 
 :end
 echo Done.
