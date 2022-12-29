@@ -79,19 +79,19 @@ goto dualboot
 
 :ask_device
 echo Which device do you want to boot?
-echo 1. iPhone9,x
-echo 2. iPhone10,x
-echo 3. A9
+echo 1. A10
+echo 2. A11
+echo 3. A9_A8
 set /p device=
 
-if "%device%"=="1" goto check_files_9
-if "%device%"=="2" goto check_files_10
+if "%device%"=="1" goto check_files_A10
+if "%device%"=="2" goto check_files_A11
 if "%device%"=="3" goto check_files_A9
 
 echo Invalid choice. Please try again.
 goto ask_device
 
-:check_files_9
+:check_files_A10
 
 if exist "ibot.img4" (
   echo ibot.img4 found.
@@ -107,7 +107,7 @@ if exist "payload_t8010.bin" (
   goto end
 )
 
-:check_files_10
+:check_files_A11
 
 if exist "ibot.img4" (
   echo ibot.img4 found.
@@ -157,7 +157,7 @@ echo Invalid choice. Please try again.
 goto ask_device
 
 :run_commands_9
-echo Running commands for iPhone9,x...
+echo Running commands for A10...
 irecovery.exe -f ibot.img4
 timeout /t 3 /nobreak >nul
 irecovery.exe -c "dorwx"
@@ -174,7 +174,7 @@ irecovery.exe -c "go boot disk0s1s8"
 goto end
 
 :run_commands_10
-echo Running commands for iPhone10,x...
+echo Running commands for A11...
 irecovery.exe -f ibot.img4
 timeout /t 3 /nobreak >nul
 irecovery.exe -c "dorwx"
@@ -191,7 +191,7 @@ irecovery.exe -c "go boot disk0s1s8"
 goto end
 
 :run_commands_A9
-echo Running commands for A9...
+echo Running commands for A9-A8...
 irecovery.exe -f ibot.img4
 timeout /t 1 /nobreak >nul
 irecovery.exe -f iBSS.img4
@@ -202,7 +202,7 @@ goto end
 :dual_realboot
 echo Which device do you want to boot?
 echo 1. A10_11
-echo 2. A9
+echo 2. A9_A8
 set /p device=
 
 if "%device%"=="1" goto dualbootA10_11
@@ -299,7 +299,7 @@ if exist "kernelcache.img4" (
   goto end
 )
 
-echo Running commands for A9...
+echo Running commands for A9-A8...
 irecovery.exe -f iBSS.img4
 timeout /t 1 /nobreak >nul
 irecovery.exe -f iBEC.img4
