@@ -319,4 +319,4 @@ irecovery -c bootx
 :end
 echo Done.
 
-timeout /t 5 /nobreak >nul
+timeout /t 3 /nobreak >nul
