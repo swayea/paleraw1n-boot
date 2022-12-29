@@ -2,28 +2,15 @@
 
 setlocal
 
-:check_folder
-if exist "deps" (
-goto :rename
+if exist deps (
+  ren deps .deps
 )
 
-if exist "libs" (
-goto :rename
+if exist libs (
+  ren libs .libs
 )
 
-if exist ".deps" (
-goto :check_files
-)
-
-if exist ".libs" (
-goto :check_files
-)
-
-:rename
-ren deps .deps
-goto check_folder
-ren libs .libs
-goto check_folder
+rem continue
 
 goto check_files
 
